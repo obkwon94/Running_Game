@@ -74,7 +74,11 @@ public class PlayerCharacter : MonoBehaviour
         if(_isGround)
         {
             JumpAction(jumpSpeed);
-            _canDoubleJump = true;
+
+            if (MainGameManager.Instance.GetPlayer().GetCurrentWeight() < 100.0f)
+                _canDoubleJump = true;
+            else
+                _canDoubleJump = false;
         }
         
         else if(true == _canDoubleJump)
