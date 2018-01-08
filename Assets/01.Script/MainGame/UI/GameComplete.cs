@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class GameComplete : MonoBehaviour {
 
     public Text GameCompleteText;
+    public Text GameFailText;
     // Use this for initialization
     void Start()
     {
         GameCompleteText.gameObject.SetActive(false);
+        GameFailText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,14 +21,14 @@ public class GameComplete : MonoBehaviour {
         {
             if(MainGameManager.Instance.GetPlayer().IsSuccess())
             {
-
+                GameCompleteText.gameObject.SetActive(true);
             }
 
             else
             {
-
+                GameFailText.gameObject.SetActive(true);
             }
-            GameCompleteText.gameObject.SetActive(true);
+            
         }
     }
 }

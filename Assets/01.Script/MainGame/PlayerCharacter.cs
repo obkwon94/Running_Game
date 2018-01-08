@@ -43,6 +43,7 @@ public class PlayerCharacter : MonoBehaviour
     {
         if ("Block" == collision.tag)
         {
+            
             _player.ResetSpeed();
         }
     }

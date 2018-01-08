@@ -88,25 +88,25 @@ public class Player : MonoBehaviour
 
     void UpdateSpeedByWeight()
     {
-        if(130.0f < _currentWeight)
+        if(100.0f < _currentWeight)
         {
-            _maxSpeed = 7.0f;
-        }
-        else if (110.0f < _currentWeight)
-        {
-            _maxSpeed = 9.0f;
+            _maxSpeed = 12.0f;
         }
         else if (90.0f < _currentWeight)
         {
-            _maxSpeed = 11.0f;
+            _maxSpeed = 14.0f;
+        }
+        else if (80.0f < _currentWeight)
+        {
+            _maxSpeed = 16.0f;
         }
         else if (70.0f < _currentWeight)
         {
-            _maxSpeed = 13.0f;
+            _maxSpeed = 18.0f;
         }
-        else if (50.0f < _currentWeight)
+        else if (60.0f < _currentWeight)
         {
-            _maxSpeed = 15.0f;
+            _maxSpeed = 20.0f;
         }
     }
 
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
     //Weight
     float _maxWeight = 140.0f;
     float _minWeight = 50.0f;
-    float _startWeight = 100.0f;
+    float _startWeight = 90.0f;
     float _decreaseWeight = 0.01f;
     float _currentWeight = 0.0f;
     float _goalWeight = 70.0f;
@@ -181,8 +181,8 @@ public class Player : MonoBehaviour
     }
 
     //Speed
-    float _maxSpeed = 15.0f;
-    float _addSpeed = 0.05f;
+    float _maxSpeed = 20.0f;
+    float _addSpeed = 0.08f;
     float _jumpSpeed = 20.0f;
 
     public float GetMaxSpeed()
@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
     }
 
     //Distance
-    float _maxDistance = 100.0f;
+    float _maxDistance = 1000.0f;
     float _distance = 0.0f;
 
     public float GetMaxDistance()
