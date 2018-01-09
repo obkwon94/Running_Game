@@ -231,7 +231,7 @@ public class Player : MonoBehaviour
             case eState.DEATH:
                 _velocity.x = 0.0f;
                 _velocity.y = 0.0f;
-                PlayerView.IdleState();
+                PlayerView.RunState();
                 break;
 
             case eState.COMPLETE:

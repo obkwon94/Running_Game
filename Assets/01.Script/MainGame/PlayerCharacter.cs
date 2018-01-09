@@ -38,15 +38,23 @@ public class PlayerCharacter : MonoBehaviour
             
         }
     }
-
+   
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if ("Block" == collision.tag)
+        if (false == _isInvincible)
         {
-            
-            _player.ResetSpeed();
+            if ("Block" == collision.tag)
+            {
+                StartCoroutine(DamageState());
+
+                _player.ResetSpeed();
+            }
         }
+        _isInvincible = false;
     }
+    
+    
 
     // Init
     Player _player;
@@ -57,6 +65,8 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     // State
+    bool _isInvincible = false;
+
     public void IdleState()
     {
         GetAnimator().SetFloat("Horizontal", 0.0f);
@@ -65,6 +75,22 @@ public class PlayerCharacter : MonoBehaviour
     public void RunState()
     {
         GetAnimator().SetFloat("Horizontal", 1.0f);
+    }
+
+    public IEnumerator DamageState()
+    {
+        _isInvincible = true;
+        GetAnimator().Play(_isGround ? "Damage" : "AirDamage");
+        GetAnimator().Play("Idle");
+        
+        yield return new WaitForSeconds(0.2f);
+
+        InvincibleState();
+    }
+
+    public void InvincibleState()
+    {
+        GetAnimator().SetTrigger("Invincible Mode");
     }
 
     bool _isGround = false;
